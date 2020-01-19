@@ -18,6 +18,13 @@
 			return idx !== index;
 		});
 	}
+
+	function checkKey(event) {
+		if(event.which !== 13){
+			return;
+		}
+		addNotes();	
+	}
 	
 </script>
 
@@ -34,7 +41,12 @@
 	<div class="field">
 		<label class="label">What is on your mind?</label>
 		<div class="control">
-			<input class="input" type="text" bind:value="{description}" placeholder="I hate snow!">
+			<input 
+			class="input" 
+			type="text" 
+			on:keydown="{checkKey}"
+			bind:value="{description}" 
+			placeholder="I hate snow!">
 		</div>
 	</div>
 	<div class="field is-grouped">
